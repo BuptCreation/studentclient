@@ -112,11 +112,11 @@ ws3.onopen=function(){
                 }
             }
             let testUrl = 'https://yd.wemiks.com/banner-2d980584-yuanben.svg';
-            document.getElementById("textdescription").value=data.articledescription
-            window.jsondata=data.datas
-            window.jsondata1=data.datas1
-            window.jsondata2=data.datas2
-            console.log(authors)
+            document.getElementById("textdescription").value=data.articledescription;
+            window.jsondata=data.datas;
+            window.jsondata1=data.datas1;
+            window.jsondata2=data.datas2;
+            console.log(authors);
             console.log(authors[theindex]);
             let editorOptions = {
                 authorship: {
