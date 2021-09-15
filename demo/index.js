@@ -193,7 +193,7 @@ ws3.onopen=function(){
                 modules: {
 
                 },
-                theme: 'snow'
+                theme: 'bubble'
             }
 
 
