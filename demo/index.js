@@ -351,21 +351,30 @@ ws3.onopen=function(){
 
     // let ws = new WebSocket("ws://47.94.108.20:3334")       //点击保存数据库的按钮，数据会被保存进数据库
     let flags=0;
+    var isClike=true;
     document.getElementById("savetomongodb").onclick = function () {
-
+            if (isClike){
             var strs = quill.getText();
             var strs2=quill1.getText();
             var contents = quill.getContents();
             ws.send(JSON.stringify({type:"0",title: title, contents: strs, datas: contents,flags:flags,contentofrefection:strs2}))
             flags=1;
-         ws.onmessage = function (e) {
-             heartCheck.reset();
-             if(JSON.parse(e.data).type!=="Heartbeat"){
-             if (JSON.parse(e.data).text === "更新成功") {
-                 alert("更新成功！");
-             }
-             }
-         }
+            ws.onmessage = function (e) {
+                 heartCheck.reset();
+                if(JSON.parse(e.data).type!=="Heartbeat"){
+                if (JSON.parse(e.data).text === "更新成功") {
+                     alert("更新成功！");
+                }
+                }
+            }
+            //按钮逻辑
+            isClike=false;
+            setTimeout(function () {
+                isClike=true;
+            },1000)
+            }else{
+                alert("您操作过快，请等一等再操作");
+            }
     }
 
 
